@@ -12,7 +12,7 @@ namespace SES_Existencias
 {
     class MSRegistro
     {
-        const string NombreProyecto = "SES_Existencias";
+        const string NombreProyecto = "BSC-Reportes";
         public string GetSetting(string section, string key, string sDefault)
         {
             RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"Software\" + NombreProyecto + "\\" + section);

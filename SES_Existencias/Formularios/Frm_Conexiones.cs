@@ -210,10 +210,10 @@ namespace SES_Existencias
                         MSRegistro RegIn = new MSRegistro();
                         Crypto EncriptarTexto = new Crypto();
                         conn.Open();
-                        RegIn.SaveSetting("ConexionSQL", "ServerR", EncriptarTexto.Encriptar(txtServer.Text));
-                        RegIn.SaveSetting("ConexionSQL", "DBaseR", EncriptarTexto.Encriptar(txtDB.Text));
-                        RegIn.SaveSetting("ConexionSQL", "UserR", EncriptarTexto.Encriptar(txtLogin.Text));
-                        RegIn.SaveSetting("ConexionSQL", "PasswordR", EncriptarTexto.Encriptar(txtPassword.Text));
+                        RegIn.SaveSetting("ConexionSQL", "Server", EncriptarTexto.Encriptar(txtServer.Text));
+                        RegIn.SaveSetting("ConexionSQL", "DBase", EncriptarTexto.Encriptar(txtDB.Text));
+                        RegIn.SaveSetting("ConexionSQL", "User", EncriptarTexto.Encriptar(txtLogin.Text));
+                        RegIn.SaveSetting("ConexionSQL", "Password", EncriptarTexto.Encriptar(txtPassword.Text));
                         XtraMessageBox.Show("Se Grabaron los Datos Del Servidor Local Con Exito");
                         this.Close();
                     }

@@ -48,8 +48,8 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.dtgConexiones = new DevExpress.XtraGrid.GridControl();
             this.dtgValConexiones = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IdSucursal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Sucursal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SucursalesId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SucursalesNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Servidor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Usuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Password = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,31 +152,31 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Size = new System.Drawing.Size(728, 24);
+            this.barDockControl1.Size = new System.Drawing.Size(728, 22);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 593);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 598);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Size = new System.Drawing.Size(728, 28);
+            this.barDockControl2.Size = new System.Drawing.Size(728, 23);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 24);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 22);
             this.barDockControl3.Manager = this.barManager1;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 569);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 576);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(728, 24);
+            this.barDockControl4.Location = new System.Drawing.Point(728, 22);
             this.barDockControl4.Manager = this.barManager1;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 569);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 576);
             // 
             // barButtonItem4
             // 
@@ -202,10 +202,10 @@
             // 
             this.panelControl2.Controls.Add(this.groupControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 24);
+            this.panelControl2.Location = new System.Drawing.Point(0, 22);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl2.Size = new System.Drawing.Size(728, 569);
+            this.panelControl2.Size = new System.Drawing.Size(728, 576);
             this.panelControl2.TabIndex = 7;
             // 
             // groupControl2
@@ -214,7 +214,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(7, 7);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(714, 555);
+            this.groupControl2.Size = new System.Drawing.Size(714, 562);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Base de Datos";
             // 
@@ -223,9 +223,9 @@
             this.panelControl3.Controls.Add(this.panelControl4);
             this.panelControl3.Controls.Add(this.panelControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 22);
+            this.panelControl3.Location = new System.Drawing.Point(2, 20);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(710, 531);
+            this.panelControl3.Size = new System.Drawing.Size(710, 540);
             this.panelControl3.TabIndex = 0;
             // 
             // panelControl4
@@ -235,7 +235,7 @@
             this.panelControl4.Location = new System.Drawing.Point(2, 183);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl4.Size = new System.Drawing.Size(706, 346);
+            this.panelControl4.Size = new System.Drawing.Size(706, 355);
             this.panelControl4.TabIndex = 15;
             // 
             // dtgConexiones
@@ -245,7 +245,7 @@
             this.dtgConexiones.MainView = this.dtgValConexiones;
             this.dtgConexiones.MenuManager = this.barManager1;
             this.dtgConexiones.Name = "dtgConexiones";
-            this.dtgConexiones.Size = new System.Drawing.Size(682, 322);
+            this.dtgConexiones.Size = new System.Drawing.Size(682, 331);
             this.dtgConexiones.TabIndex = 0;
             this.dtgConexiones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValConexiones});
@@ -254,8 +254,8 @@
             // dtgValConexiones
             // 
             this.dtgValConexiones.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IdSucursal,
-            this.Sucursal,
+            this.SucursalesId,
+            this.SucursalesNombre,
             this.Servidor,
             this.Usuario,
             this.Password,
@@ -264,25 +264,25 @@
             this.dtgValConexiones.Name = "dtgValConexiones";
             this.dtgValConexiones.OptionsView.ShowGroupPanel = false;
             // 
-            // IdSucursal
+            // SucursalesId
             // 
-            this.IdSucursal.Caption = "IdSucursal";
-            this.IdSucursal.FieldName = "IdSucursal";
-            this.IdSucursal.Name = "IdSucursal";
+            this.SucursalesId.Caption = "IdSucursal";
+            this.SucursalesId.FieldName = "IdSucursal";
+            this.SucursalesId.Name = "SucursalesId";
             // 
-            // Sucursal
+            // SucursalesNombre
             // 
-            this.Sucursal.Caption = "Sucursal";
-            this.Sucursal.FieldName = "Sucursal";
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.Visible = true;
-            this.Sucursal.VisibleIndex = 0;
-            this.Sucursal.Width = 109;
+            this.SucursalesNombre.Caption = "Sucursal";
+            this.SucursalesNombre.FieldName = "Sucursal";
+            this.SucursalesNombre.Name = "SucursalesNombre";
+            this.SucursalesNombre.Visible = true;
+            this.SucursalesNombre.VisibleIndex = 0;
+            this.SucursalesNombre.Width = 109;
             // 
             // Servidor
             // 
             this.Servidor.Caption = "Servidor";
-            this.Servidor.FieldName = "Servidor";
+            this.Servidor.FieldName = "ServerID";
             this.Servidor.Name = "Servidor";
             this.Servidor.Visible = true;
             this.Servidor.VisibleIndex = 1;
@@ -291,7 +291,7 @@
             // Usuario
             // 
             this.Usuario.Caption = "Usuario";
-            this.Usuario.FieldName = "Usuario";
+            this.Usuario.FieldName = "UserID";
             this.Usuario.Name = "Usuario";
             this.Usuario.Visible = true;
             this.Usuario.VisibleIndex = 2;
@@ -300,7 +300,7 @@
             // Password
             // 
             this.Password.Caption = "Password";
-            this.Password.FieldName = "Password";
+            this.Password.FieldName = "PassID";
             this.Password.Name = "Password";
             this.Password.Visible = true;
             this.Password.VisibleIndex = 4;
@@ -309,7 +309,7 @@
             // BasedeDatos
             // 
             this.BasedeDatos.Caption = "Base de Datos";
-            this.BasedeDatos.FieldName = "BasedeDatos";
+            this.BasedeDatos.FieldName = "DataBaseID";
             this.BasedeDatos.Name = "BasedeDatos";
             this.BasedeDatos.Visible = true;
             this.BasedeDatos.VisibleIndex = 3;
@@ -332,6 +332,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(706, 181);
             this.panelControl1.TabIndex = 14;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // cboSucursales
             // 
@@ -485,8 +486,8 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraGrid.GridControl dtgConexiones;
         private DevExpress.XtraGrid.Views.Grid.GridView dtgValConexiones;
-        private DevExpress.XtraGrid.Columns.GridColumn IdSucursal;
-        private DevExpress.XtraGrid.Columns.GridColumn Sucursal;
+        private DevExpress.XtraGrid.Columns.GridColumn SucursalesId;
+        private DevExpress.XtraGrid.Columns.GridColumn SucursalesNombre;
         private DevExpress.XtraGrid.Columns.GridColumn Servidor;
         private DevExpress.XtraGrid.Columns.GridColumn Usuario;
         private DevExpress.XtraGrid.Columns.GridColumn Password;
