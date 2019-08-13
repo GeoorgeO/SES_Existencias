@@ -109,10 +109,10 @@ namespace SES_Existencias
                 {
                     Crypto DesEncryp = new Crypto();
                     DataRow row = dtgValConexiones.GetDataRow(i);
-                    vIdSucursal = Convert.ToInt32(row["IdSucursal"].ToString());
-                    txtServer.Text = row["Servidor"].ToString();
-                    txtLogin.Text = row["Usuario"].ToString();
-                    txtDB.Text = row["BasedeDatos"].ToString();
+                    vIdSucursal = Convert.ToInt32(row["SucursalesId"].ToString());
+                    txtServer.Text = row["ServerID"].ToString();
+                    txtLogin.Text = row["UserID"].ToString();
+                    txtDB.Text = row["DataBaseID"].ToString();
                     CargarSucursales(vIdSucursal);
                     
                     if (row[5].ToString() != string.Empty)

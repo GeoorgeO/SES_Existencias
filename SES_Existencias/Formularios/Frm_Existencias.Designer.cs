@@ -32,7 +32,7 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCodpro = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -40,14 +40,17 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.SucursalesId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SucursalesNombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Existencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Estatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.ServerID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DataBaseID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UserID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PassID = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.existencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Estatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.Observaciones = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodpro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -83,12 +86,12 @@
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Descripción:";
             // 
-            // textEdit1
+            // txtCodpro
             // 
-            this.textEdit1.Location = new System.Drawing.Point(48, 48);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 3;
+            this.txtCodpro.Location = new System.Drawing.Point(48, 48);
+            this.txtCodpro.Name = "txtCodpro";
+            this.txtCodpro.Size = new System.Drawing.Size(100, 20);
+            this.txtCodpro.TabIndex = 3;
             // 
             // labelControl3
             // 
@@ -102,19 +105,20 @@
             // 
             this.panelControl2.AutoSize = true;
             this.panelControl2.Controls.Add(this.panelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(8, 162);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(573, 333);
+            this.panelControl2.Size = new System.Drawing.Size(823, 557);
             this.panelControl2.TabIndex = 12;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.tabla);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(12, 12);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(12, 106);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(549, 309);
+            this.panelControl3.Size = new System.Drawing.Size(799, 439);
             this.panelControl3.TabIndex = 1;
             // 
             // tabla
@@ -123,7 +127,7 @@
             this.tabla.Location = new System.Drawing.Point(2, 2);
             this.tabla.MainView = this.gridView1;
             this.tabla.Name = "tabla";
-            this.tabla.Size = new System.Drawing.Size(545, 305);
+            this.tabla.Size = new System.Drawing.Size(795, 435);
             this.tabla.TabIndex = 0;
             this.tabla.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -137,8 +141,9 @@
             this.DataBaseID,
             this.UserID,
             this.PassID,
-            this.Existencia,
-            this.Estatus});
+            this.existencia,
+            this.Estatus,
+            this.Observaciones});
             this.gridView1.GridControl = this.tabla;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -159,34 +164,6 @@
             this.SucursalesNombre.Name = "SucursalesNombre";
             this.SucursalesNombre.Visible = true;
             this.SucursalesNombre.VisibleIndex = 1;
-            // 
-            // Existencia
-            // 
-            this.Existencia.Caption = "Existencia";
-            this.Existencia.FieldName = "Existencia";
-            this.Existencia.Name = "Existencia";
-            this.Existencia.Visible = true;
-            this.Existencia.VisibleIndex = 2;
-            // 
-            // Estatus
-            // 
-            this.Estatus.Caption = "Estatus";
-            this.Estatus.FieldName = "Estatus";
-            this.Estatus.Name = "Estatus";
-            this.Estatus.Visible = true;
-            this.Estatus.VisibleIndex = 3;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
-            this.panelControl1.Controls.Add(this.textEdit1);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Location = new System.Drawing.Point(8, 1);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(573, 100);
-            this.panelControl1.TabIndex = 13;
             // 
             // ServerID
             // 
@@ -220,6 +197,62 @@
             this.PassID.Visible = true;
             this.PassID.VisibleIndex = 7;
             // 
+            // existencia
+            // 
+            this.existencia.Caption = "Existencia";
+            this.existencia.FieldName = "existencia";
+            this.existencia.Name = "existencia";
+            this.existencia.Visible = true;
+            this.existencia.VisibleIndex = 2;
+            // 
+            // Estatus
+            // 
+            this.Estatus.Caption = "Estatus";
+            this.Estatus.FieldName = "Estatus";
+            this.Estatus.Name = "Estatus";
+            this.Estatus.Visible = true;
+            this.Estatus.VisibleIndex = 3;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.simpleButton3);
+            this.panelControl1.Controls.Add(this.simpleButton2);
+            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.txtCodpro);
+            this.panelControl1.Controls.Add(this.labelControl3);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(823, 100);
+            this.panelControl1.TabIndex = 13;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(367, 69);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton2.TabIndex = 14;
+            this.simpleButton2.Text = "Consultar";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // Observaciones
+            // 
+            this.Observaciones.Caption = "Observaciones";
+            this.Observaciones.FieldName = "Observaciones";
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.Visible = true;
+            this.Observaciones.VisibleIndex = 8;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(153, 47);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(28, 23);
+            this.simpleButton3.TabIndex = 15;
+            this.simpleButton3.Text = "...";
+            // 
             // Frm_Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +263,7 @@
             this.Name = "Frm_Existencias";
             this.Text = "Frm_Existencias";
             this.Load += new System.EventHandler(this.Frm_Existencias_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodpro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
@@ -250,14 +283,14 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtCodpro;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl tabla;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn SucursalesId;
         private DevExpress.XtraGrid.Columns.GridColumn SucursalesNombre;
-        private DevExpress.XtraGrid.Columns.GridColumn Existencia;
+        private DevExpress.XtraGrid.Columns.GridColumn existencia;
         private DevExpress.XtraGrid.Columns.GridColumn Estatus;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl1;
@@ -265,5 +298,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn DataBaseID;
         private DevExpress.XtraGrid.Columns.GridColumn UserID;
         private DevExpress.XtraGrid.Columns.GridColumn PassID;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraGrid.Columns.GridColumn Observaciones;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

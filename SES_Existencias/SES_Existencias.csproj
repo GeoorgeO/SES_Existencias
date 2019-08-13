@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexiones\Codigos.cs" />
+    <Compile Include="Conexiones\conecta.cs" />
     <Compile Include="Conexiones\Crypto.cs" />
     <Compile Include="Conexiones\GridCheckMarksSelection.cs" />
     <Compile Include="Conexiones\GridMarksSelecioncs.cs" />

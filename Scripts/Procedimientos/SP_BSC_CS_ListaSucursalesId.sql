@@ -18,9 +18,9 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_BSC_CS_ConexionesSucursalesSelect
+CREATE PROCEDURE SP_BSC_CS_ListaSucursalesId 
 	-- Add the parameters for the stored procedure here
-	
+	@SucursalesId int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -28,17 +28,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	select cr.SucursalesId,
-	suc.SucursalesNombre,
-	cr.ServerID,
-	cr.DataBaseID,
-	cr.UserID,
-	cr.PassID,
-	0 as existencia,
-	'                   ' as Estatus,
-	'                                                                                                                                                                     ' as Observaciones
-  from ConexionesRemotas as cr
-  inner join Sucursales as suc on cr.SucursalesId=suc.SucursalesId
-  where cr.SucursalesId >0
+	SELECT        ConexionesSucursales.SucursalesId, RTRIM(Sucursales.SucursalesNombre) AS SucursalesNombre, ConexionesSucursales.ServerID, ConexionesSucursales.DataBaseID, ConexionesSucursales.UserID, 
+                         ConexionesSucursales.PassID
+FROM            ConexionesSucursales INNER JOIN
+                         Sucursales ON ConexionesSucursales.SucursalesId = Sucursales.SucursalesId
+WHERE        (ConexionesSucursales.SucursalesId = @SucursalesId)
 END
 GO

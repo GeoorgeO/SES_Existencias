@@ -18,7 +18,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_BSC_CS_ConexionesSucursalesSelect
+CREATE PROCEDURE SP_BSC_CS_ListaSucursales 
 	-- Add the parameters for the stored procedure here
 	
 AS
@@ -28,17 +28,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	select cr.SucursalesId,
-	suc.SucursalesNombre,
-	cr.ServerID,
-	cr.DataBaseID,
-	cr.UserID,
-	cr.PassID,
-	0 as existencia,
-	'                   ' as Estatus,
-	'                                                                                                                                                                     ' as Observaciones
-  from ConexionesRemotas as cr
-  inner join Sucursales as suc on cr.SucursalesId=suc.SucursalesId
-  where cr.SucursalesId >0
+	SELECT        ConexionesSucursales.SucursalesId,rtrim( suc.SucursalesNombre) as SucursalesNombre
+    FROM            ConexionesSucursales INNER JOIN
+                         Central.dbo.Sucursales as suc ON ConexionesSucursales.SucursalesId = suc.SucursalesId
 END
 GO
