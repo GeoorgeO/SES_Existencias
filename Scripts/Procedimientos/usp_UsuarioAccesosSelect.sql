@@ -18,9 +18,10 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_BSC_CS_ConexionesSucursalesSelect
+CREATE PROCEDURE usp_UsuarioAccesosSelect
 	-- Add the parameters for the stored procedure here
-	@exepcion numeric(4,0)
+	@c_codigo_usu varchar(20),
+	@v_passwo_usu varchar(20)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -28,17 +29,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	select cr.SucursalesId,
-	suc.SucursalesNombre,
-	cr.ServerID,
-	cr.DataBaseID,
-	cr.UserID,
-	cr.PassID,
-	0 as existencia,
-	'                   ' as Estatus,
-	'                                                                                                                                                                     ' as Observaciones
-  from ConexionesRemotas as cr
-  inner join Sucursales as suc on cr.SucursalesId=suc.SucursalesId
-  where suc.SucursalesId>0 and suc.SucursalesId<>@exepcion
+	SELECT        Usuarios.UsuariosId, RTRIM(Usuarios.UsuariosNombre) AS UsuariosNombre, RTRIM(Usuarios.UsuariosLogin) AS UsuariosLogin, RTRIM(Usuarios.UsuariosPassword) AS UsuariosPassword,UsuariosActivo, 
+                         RTRIM(Roles.RolesNombre) AS RolesNombre
+FROM            Usuarios INNER JOIN
+                         Roles ON Usuarios.RolesId = Roles.RolesId
+						 where UsuariosLogin=@c_codigo_usu and UsuariosPassword=@v_passwo_usu
 END
 GO

@@ -56,6 +56,11 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cboSucursales = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboCajas = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -71,6 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboSucursales.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCajas.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -108,15 +116,15 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Size = new System.Drawing.Size(387, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(653, 0);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 276);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 210);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Size = new System.Drawing.Size(387, 23);
+            this.barDockControl2.Size = new System.Drawing.Size(653, 28);
             // 
             // barDockControl3
             // 
@@ -124,15 +132,15 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 0);
             this.barDockControl3.Manager = this.barManager1;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 276);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 210);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(387, 0);
+            this.barDockControl4.Location = new System.Drawing.Point(653, 0);
             this.barDockControl4.Manager = this.barManager1;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 276);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 210);
             // 
             // barButtonItem4
             // 
@@ -164,7 +172,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl2.Size = new System.Drawing.Size(387, 276);
+            this.panelControl2.Size = new System.Drawing.Size(653, 210);
             this.panelControl2.TabIndex = 6;
             // 
             // xtraTabControl1
@@ -173,7 +181,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(7, 7);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(373, 262);
+            this.xtraTabControl1.Size = new System.Drawing.Size(639, 196);
             this.xtraTabControl1.TabIndex = 1;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -183,8 +191,8 @@
             this.xtraTabPage1.Controls.Add(this.groupControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(5);
-            this.xtraTabPage1.Size = new System.Drawing.Size(367, 234);
-            this.xtraTabPage1.Text = "Conexion Local";
+            this.xtraTabPage1.Size = new System.Drawing.Size(635, 171);
+            this.xtraTabPage1.Text = "Conexion Sucursal";
             // 
             // groupControl2
             // 
@@ -192,12 +200,17 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(5, 5);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(357, 224);
+            this.groupControl2.Size = new System.Drawing.Size(625, 161);
             this.groupControl2.TabIndex = 0;
-            this.groupControl2.Text = "Datos Local";
+            this.groupControl2.Text = "Datos Conexion";
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.cboCajas);
+            this.panelControl3.Controls.Add(this.cboSucursales);
+            this.panelControl3.Controls.Add(this.labelControl6);
+            this.panelControl3.Controls.Add(this.labelControl5);
+            this.panelControl3.Controls.Add(this.separatorControl1);
             this.panelControl3.Controls.Add(this.btnProbarConexionR);
             this.panelControl3.Controls.Add(this.btnGuardarConexionR);
             this.panelControl3.Controls.Add(this.labelControl1);
@@ -209,15 +222,15 @@
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.txtServer);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 20);
+            this.panelControl3.Location = new System.Drawing.Point(2, 22);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(353, 202);
+            this.panelControl3.Size = new System.Drawing.Size(621, 137);
             this.panelControl3.TabIndex = 0;
             // 
             // btnProbarConexionR
             // 
             this.btnProbarConexionR.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnProbarConexionR.ImageOptions.Image")));
-            this.btnProbarConexionR.Location = new System.Drawing.Point(102, 132);
+            this.btnProbarConexionR.Location = new System.Drawing.Point(435, 79);
             this.btnProbarConexionR.Name = "btnProbarConexionR";
             this.btnProbarConexionR.Size = new System.Drawing.Size(75, 40);
             this.btnProbarConexionR.TabIndex = 17;
@@ -227,7 +240,7 @@
             // btnGuardarConexionR
             // 
             this.btnGuardarConexionR.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarConexionR.ImageOptions.Image")));
-            this.btnGuardarConexionR.Location = new System.Drawing.Point(21, 132);
+            this.btnGuardarConexionR.Location = new System.Drawing.Point(517, 79);
             this.btnGuardarConexionR.Name = "btnGuardarConexionR";
             this.btnGuardarConexionR.Size = new System.Drawing.Size(75, 40);
             this.btnGuardarConexionR.TabIndex = 16;
@@ -304,11 +317,57 @@
             this.imageCollection1.Images.SetKeyName(0, "GuardarConexion.png");
             this.imageCollection1.Images.SetKeyName(1, "ProbarConexion.png");
             // 
+            // separatorControl1
+            // 
+            this.separatorControl1.AutoSizeMode = true;
+            this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.separatorControl1.Location = new System.Drawing.Point(326, 4);
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Size = new System.Drawing.Size(20, 128);
+            this.separatorControl1.TabIndex = 18;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(383, 23);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(44, 13);
+            this.labelControl5.TabIndex = 19;
+            this.labelControl5.Text = "Sucursal:";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(401, 52);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(26, 13);
+            this.labelControl6.TabIndex = 20;
+            this.labelControl6.Text = "Caja:";
+            // 
+            // cboSucursales
+            // 
+            this.cboSucursales.Location = new System.Drawing.Point(435, 20);
+            this.cboSucursales.MenuManager = this.barManager1;
+            this.cboSucursales.Name = "cboSucursales";
+            this.cboSucursales.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboSucursales.Size = new System.Drawing.Size(157, 20);
+            this.cboSucursales.TabIndex = 21;
+            this.cboSucursales.EditValueChanged += new System.EventHandler(this.cboSucursales_EditValueChanged);
+            // 
+            // cboCajas
+            // 
+            this.cboCajas.Location = new System.Drawing.Point(435, 48);
+            this.cboCajas.MenuManager = this.barManager1;
+            this.cboCajas.Name = "cboCajas";
+            this.cboCajas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboCajas.Size = new System.Drawing.Size(157, 20);
+            this.cboCajas.TabIndex = 22;
+            // 
             // Frm_Conexiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 299);
+            this.ClientSize = new System.Drawing.Size(653, 238);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.barDockControl3);
             this.Controls.Add(this.barDockControl4);
@@ -337,6 +396,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboSucursales.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCajas.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,5 +432,10 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.SimpleButton btnProbarConexionR;
         private DevExpress.XtraEditors.SimpleButton btnGuardarConexionR;
+        private DevExpress.XtraEditors.LookUpEdit cboCajas;
+        private DevExpress.XtraEditors.LookUpEdit cboSucursales;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using Microsoft.Win32;
 using DevExpress.XtraEditors;
+using CapaDeDatos;
 
 namespace SES_Existencias
 {
@@ -30,7 +31,10 @@ namespace SES_Existencias
                 m_FormDefInstance = value;
             }
         }
-        
+
+        public string v_Sucursal { get; private set; }
+        public string v_Caja { get; private set; }
+
         public Frm_Conexiones()
         {
             InitializeComponent();
@@ -101,6 +105,9 @@ namespace SES_Existencias
                     try
                     {
                         conn.Open();
+                        v_Sucursal =RegOut.GetSetting("ConexionSQL", "Sucursal");
+                        v_Caja = RegOut.GetSetting("ConexionSQL", "Caja");
+                        CargarComboSucursales();
                     }
                     catch
                     {
@@ -116,6 +123,8 @@ namespace SES_Existencias
                 txtPassword.Text = string.Empty;
             }
         }
+
+        
         private void btnGuardarConexion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (txtServer.Text != "" && txtDB.Text != "" && txtLogin.Text != "" && txtPassword.Text != "")
@@ -201,7 +210,7 @@ namespace SES_Existencias
 
         private void btnGuardarConexionR_Click(object sender, EventArgs e)
         {
-            if (txtServer.Text != "" && txtDB.Text != "" && txtLogin.Text != "" && txtPassword.Text != "")
+            if (txtServer.Text != "" && txtDB.Text != "" && txtLogin.Text != "" && txtPassword.Text != "" && cboCajas.EditValue!=null && cboSucursales.EditValue!=null)
             {
                 {
                     SqlConnection conn = new SqlConnection("Data Source=" + txtServer.Text + ";Initial Catalog=" + txtDB.Text + ";Persist Security Info=True;User ID=" + txtLogin.Text + ";Password=" + txtPassword.Text);
@@ -214,6 +223,8 @@ namespace SES_Existencias
                         RegIn.SaveSetting("ConexionSQL", "DBase", EncriptarTexto.Encriptar(txtDB.Text));
                         RegIn.SaveSetting("ConexionSQL", "User", EncriptarTexto.Encriptar(txtLogin.Text));
                         RegIn.SaveSetting("ConexionSQL", "Password", EncriptarTexto.Encriptar(txtPassword.Text));
+                        RegIn.SaveSetting("ConexionSQL", "Sucursal", EncriptarTexto.Encriptar(cboSucursales.EditValue.ToString()));
+                        RegIn.SaveSetting("ConexionSQL", "Caja", EncriptarTexto.Encriptar(cboCajas.EditValue.ToString()));
                         XtraMessageBox.Show("Se Grabaron los Datos Del Servidor Local Con Exito");
                         this.Close();
                     }
@@ -240,10 +251,12 @@ namespace SES_Existencias
                         XtraMessageBox.Show("Conexion Exitosa DB Local");
                         MSRegistro RegIn = new MSRegistro();
                         Crypto EncriptarTexto = new Crypto();
-                        RegIn.SaveSetting("ConexionSQL", "ServerR", EncriptarTexto.Encriptar(txtServer.Text));
-                        RegIn.SaveSetting("ConexionSQL", "DBaseR", EncriptarTexto.Encriptar(txtDB.Text));
-                        RegIn.SaveSetting("ConexionSQL", "UserR", EncriptarTexto.Encriptar(txtLogin.Text));
-                        RegIn.SaveSetting("ConexionSQL", "PasswordR", EncriptarTexto.Encriptar(txtPassword.Text));
+                        RegIn.SaveSetting("ConexionSQL", "Server", EncriptarTexto.Encriptar(txtServer.Text));
+                        RegIn.SaveSetting("ConexionSQL", "DBase", EncriptarTexto.Encriptar(txtDB.Text));
+                        RegIn.SaveSetting("ConexionSQL", "User", EncriptarTexto.Encriptar(txtLogin.Text));
+                        RegIn.SaveSetting("ConexionSQL", "Password", EncriptarTexto.Encriptar(txtPassword.Text));
+                        CargarComboSucursales();
+
                     }
                     catch (Exception ex)
                     {
@@ -253,7 +266,58 @@ namespace SES_Existencias
             }
         }
 
-        
-        
+        private void CargarComboSucursales()
+        {
+            MSRegistro RegOut = new MSRegistro();
+            Crypto DesencriptarTexto = new Crypto();
+            if (v_Sucursal!=null)
+            {
+                int v_Sucursalnum =Convert.ToInt32(DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Sucursal")));
+                CargarSucursales(v_Sucursalnum);
+                if (v_Caja != null)
+                {
+                    int v_Cajanum = Convert.ToInt32(DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Caja")));
+                    cboCajas.Properties.DataSource = null;
+                    CargarCajas(v_Cajanum, v_Sucursalnum);
+                }
+            }
+            else
+            {
+                CargarSucursales(null);
+            }
+        }
+        private void CargarCajas(int? Valor, int? Sucursal)
+        {
+            ConfigConexion conCajas = new ConfigConexion();
+            conCajas.SucursalesId = Sucursal;
+            conCajas.MtdSeleccionarCajas();
+            if (conCajas.Exito)
+            {
+                cboCajas.Properties.DisplayMember = "CajaDescripcion";
+                cboCajas.Properties.ValueMember = "CajaId";
+                cboCajas.EditValue = Valor;
+                cboCajas.Properties.DataSource = conCajas.Datos;
+            }
+        }
+        private void CargarSucursales(int? Valor)
+        {
+            ConfigConexion conSucursales = new ConfigConexion();
+            conSucursales.MtdSeleccionarSucursales();
+            if (conSucursales.Exito)
+            {
+                cboSucursales.Properties.DisplayMember = "SucursalesNombre";
+                cboSucursales.Properties.ValueMember = "SucursalesId";
+                cboSucursales.EditValue = Valor;
+                cboSucursales.Properties.DataSource = conSucursales.Datos;
+            }
+        }
+
+        private void cboSucursales_EditValueChanged(object sender, EventArgs e)
+        {
+            if(cboSucursales.EditValue!=null)
+            {
+                CargarCajas(null,Convert.ToInt32(cboSucursales.EditValue));
+            }
+        }
     }
 }

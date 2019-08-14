@@ -21,8 +21,8 @@ namespace SES_Existencias
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Frm_Conexiones editconexion = new Frm_Conexiones();
-            editconexion.ShowDialog();
+            Frm_Login login = new Frm_Login(8);
+            login.ShowDialog();
         }
 
         private void Frm_Existencias_Load(object sender, EventArgs e)
@@ -32,16 +32,19 @@ namespace SES_Existencias
             //gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             //CargarSucursales(null);
             CargarConexionesSucursalesExistencias();
-            
-
-
-
         }
 
         private void CargarConexionesSucursalesExistencias()
         {
             ConexionesSucursalesExistencias conexion = new ConexionesSucursalesExistencias();
             Crypto desencriptar = new Crypto();
+            int suc;
+            suc = CargarComboSucursales();
+            if (suc >= 0)
+            {
+                conexion.SucursalesId = suc;
+            }
+            
             conexion.MtdSeleccionarConexionesSucursales();
             if (conexion.Exito)
             {
@@ -115,14 +118,7 @@ namespace SES_Existencias
                         {
                             conexion.Datos.Rows[x][7] = string.Empty;
                         }
-                        if (conexion.Datos.Rows[x][8].ToString() != string.Empty)
-                        {
-                            conexion.Datos.Rows[x][8] = conexion.Datos.Rows[x][8].ToString(); ;
-                        }
-                        else
-                        {
-                            conexion.Datos.Rows[x][8] = string.Empty;
-                        }
+                        
                     }
                     tabla.DataSource = conexion.Datos;
                 }
@@ -144,27 +140,114 @@ namespace SES_Existencias
 
                 valorregresado = c.datosconexion(gridView1.GetRowCellValue(xRow, "ServerID").ToString(), gridView1.GetRowCellValue(xRow, "DataBaseID").ToString(), gridView1.GetRowCellValue(xRow, "UserID").ToString(), gridView1.GetRowCellValue(xRow, "PassID").ToString(), "select ArticuloCantidad from Articulo where ArticuloCodigo='"+ txtCodpro .Text.Trim()+ "'");
 
-                if (valorregresado<0)
+               
+
+                if (valorregresado < 0)
                 {
-                    gridView1.SetRowCellValue(xRow, gridView1.Columns[7],"No disponible" );
-                    valorregresado = 0;
+                    gridView1.SetRowCellValue(xRow, gridView1.Columns[7], "No disponible");
+                    gridView1.SetRowCellValue(xRow, gridView1.Columns[6], null);
                 }
                 else
                 {
-                    gridView1.SetRowCellValue(xRow, gridView1.Columns[7],"En linea");
+                    gridView1.SetRowCellValue(xRow, gridView1.Columns[7], "En linea");
+                    gridView1.SetRowCellValue(xRow, gridView1.Columns[6], valorregresado);
                 }
-
                 //c.datosconexion("JONOFRE-LAP\\LOCALSQLINS", "SES_EstocolmoV3", "sa", "inventumc762$");
-                gridView1.SetRowCellValue(xRow, gridView1.Columns[6],valorregresado);
+               
                 
 
             }
            
         }
 
+        private void limpiartablaestatus()
+        {
+            int renglon = 0;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                renglon= gridView1.GetVisibleRowHandle(i);
+                gridView1.SetRowCellValue(renglon, gridView1.Columns[7], "");
+                gridView1.SetRowCellValue(renglon, gridView1.Columns[6], null);
+            }
+        }
+
+        private int CargarComboSucursales()
+        {
+            MSRegistro RegOut = new MSRegistro();
+            Crypto DesencriptarTexto = new Crypto();
+           
+                return  Convert.ToInt32(DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Sucursal")));
+               
+             
+        }
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            recorrertabla();
+            limpiartablaestatus();
+            if (txtCodpro.Text != String.Empty && lNomArticulo.Text!=String.Empty)
+            {
+                recorrertabla();
+            }
+            
+            
+        }
+
+        private void cargarArticuloId()
+        {
+            ConexionesSucursalesExistencias conexion = new ConexionesSucursalesExistencias();
+
+            conexion.Codigo = txtCodpro.Text.Trim();
+            conexion.MtdSeleccionarArticuloId();
+            if (conexion.Exito)
+            {
+                if (conexion.Datos.Rows.Count > 0)
+                {
+                    if (conexion.Datos.Rows[0][1].ToString() != String.Empty)
+                    {
+                        lNomArticulo.Text = conexion.Datos.Rows[0][1].ToString();
+                    }
+                }
+            }
+        }
+
+        private void sbCodProducto_Click(object sender, EventArgs e)
+        {
+            Frm_BusqArticulo BusArt = new Frm_BusqArticulo();
+
+            BusArt.ShowDialog();
+            txtCodpro.Text = BusArt.codigoArticulo;
+            lNomArticulo.Text = BusArt.nombreArticulo;
+            lexislocal.Text = BusArt.existenciaLocal;
+        }
+
+        private void sbConRemotas_Click(object sender, EventArgs e)
+        {
+            Frm_Login login = new Frm_Login(9);
+            login.ShowDialog();
+        }
+        private void llenaarticulo(string Codigo,string Articulo){
+            txtCodpro.Text = Codigo;
+            lNomArticulo.Text = Articulo;
+        }
+
+        private void txtCodpro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                if (txtCodpro.Text==String.Empty)
+                {
+                    sbCodProducto.PerformClick();
+                }
+                else
+                {
+                    cargarArticuloId();
+                }
+            }
+        }
+
+        private void txtCodpro_TextChanged(object sender, EventArgs e)
+        {
+            lNomArticulo.Text = String.Empty;
         }
     }
 }

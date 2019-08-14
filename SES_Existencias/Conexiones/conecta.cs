@@ -12,14 +12,18 @@ namespace SES_Existencias
     {
         public int datosconexion(string servidor,string basededatos,string usuario, string contrasena,string consulta)
         {
-            SqlConnection conexion = new SqlConnection("Data Source = "+ servidor + ";  Database="+ basededatos + "; User ID = "+ usuario + "; Password="+ contrasena + ";");
+            SqlConnection conexion = new SqlConnection("Data Source = "+ servidor + ";  Database="+ basededatos + "; User ID = "+ usuario + "; Password="+ contrasena + "; Connection Timeout=8");
             try
             {
+                
                 conexion.Open();
+                Console.WriteLine("State: {0}", conexion.State);
+                Console.WriteLine("ConnectionTimeout: {0}",
+                    conexion.ConnectionTimeout);
             }
             catch (Exception e)
             {
-                XtraMessageBox.Show(e.Message,"Error de conexion" );
+                //XtraMessageBox.Show(e.Message,"Error de conexion" );
                 return -1;
 
             }
@@ -41,7 +45,7 @@ namespace SES_Existencias
             }
             catch (Exception e)
             {
-                XtraMessageBox.Show(e.Message, "Error de conexion");
+                //XtraMessageBox.Show(e.Message, "Error de al consultar");
                 return -1;
 
             }
