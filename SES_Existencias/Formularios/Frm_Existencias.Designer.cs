@@ -38,6 +38,8 @@
             this.sbCodProducto = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.lexislocal = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.tabla = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -49,8 +51,6 @@
             this.PassID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.existencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Estatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.lexislocal = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodpro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
@@ -150,6 +150,25 @@
             this.panelControl4.Size = new System.Drawing.Size(459, 109);
             this.panelControl4.TabIndex = 17;
             // 
+            // lexislocal
+            // 
+            this.lexislocal.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lexislocal.Appearance.Options.UseFont = true;
+            this.lexislocal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lexislocal.Location = new System.Drawing.Point(297, 55);
+            this.lexislocal.Name = "lexislocal";
+            this.lexislocal.Size = new System.Drawing.Size(56, 13);
+            this.lexislocal.TabIndex = 18;
+            this.lexislocal.Text = "                        ";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(216, 55);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(79, 13);
+            this.labelControl3.TabIndex = 17;
+            this.labelControl3.Text = "Existencia Local:";
+            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.tabla);
@@ -246,25 +265,6 @@
             this.Estatus.Visible = true;
             this.Estatus.VisibleIndex = 3;
             this.Estatus.Width = 93;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(216, 55);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(79, 13);
-            this.labelControl3.TabIndex = 17;
-            this.labelControl3.Text = "Existencia Local:";
-            // 
-            // lexislocal
-            // 
-            this.lexislocal.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lexislocal.Appearance.Options.UseFont = true;
-            this.lexislocal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lexislocal.Location = new System.Drawing.Point(297, 55);
-            this.lexislocal.Name = "lexislocal";
-            this.lexislocal.Size = new System.Drawing.Size(56, 13);
-            this.lexislocal.TabIndex = 18;
-            this.lexislocal.Text = "                        ";
             // 
             // Frm_Existencias
             // 

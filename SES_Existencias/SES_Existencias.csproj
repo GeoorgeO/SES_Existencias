@@ -84,6 +84,12 @@
     <Compile Include="Formularios\Frm_BusqArticulo.Designer.cs">
       <DependentUpon>Frm_BusqArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Frm_CargandoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_CargandoConsulta.designer.cs">
+      <DependentUpon>Frm_CargandoConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Frm_Conexiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Frm_BusqArticulo.resx">
       <DependentUpon>Frm_BusqArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_CargandoConsulta.resx">
+      <DependentUpon>Frm_CargandoConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_Conexiones.resx">
       <DependentUpon>Frm_Conexiones.cs</DependentUpon>

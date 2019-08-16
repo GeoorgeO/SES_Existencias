@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CapaDeDatos;
+using DevExpress.XtraSplashScreen;
 
 namespace SES_Existencias
 {
@@ -133,7 +134,7 @@ namespace SES_Existencias
 
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-
+                MensajeCargando(1);
                 xRow = gridView1.GetVisibleRowHandle(i);
 
                 int valorregresado = 0;
@@ -153,8 +154,8 @@ namespace SES_Existencias
                     gridView1.SetRowCellValue(xRow, gridView1.Columns[6], valorregresado);
                 }
                 //c.datosconexion("JONOFRE-LAP\\LOCALSQLINS", "SES_EstocolmoV3", "sa", "inventumc762$");
-               
-                
+
+                MensajeCargando(2);
 
             }
            
@@ -183,6 +184,7 @@ namespace SES_Existencias
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            
             limpiartablaestatus();
             if (txtCodpro.Text != String.Empty && lNomArticulo.Text!=String.Empty)
             {
@@ -190,6 +192,27 @@ namespace SES_Existencias
             }
             
             
+        }
+
+        public void MensajeCargando(int opcion)
+        {
+            if (opcion == 1)
+            {
+                SplashScreenManager.ShowForm(this, typeof(Frm_CargandoConsulta), true, true, false);
+                SplashScreenManager.Default.SetWaitFormCaption("Procesando...");
+                SplashScreenManager.Default.SetWaitFormDescription("Espere por favor...");
+            }
+            else
+            {
+                try
+                {
+                    SplashScreenManager.CloseForm();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void cargarArticuloId()

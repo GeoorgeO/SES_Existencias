@@ -66,7 +66,8 @@
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(120, 121);
             this.pictureEdit1.TabIndex = 6;
-            this.pictureEdit1.DoubleClick += new System.EventHandler(this.pictureEdit1_DoubleClick);
+            
+           // this.pictureEdit1.DoubleClick += new System.EventHandler(this.pictureEdit1_DoubleClick);
             // 
             // SkinForm
             // 
@@ -183,9 +184,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 149);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 146);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(594, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(594, 25);
             // 
             // barDockControlLeft
             // 
@@ -193,7 +194,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 149);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 146);
             // 
             // barDockControlRight
             // 
@@ -201,7 +202,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(594, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 149);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 146);
             // 
             // Frm_Login
             // 

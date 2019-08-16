@@ -273,7 +273,7 @@
             // SucursalesNombre
             // 
             this.SucursalesNombre.Caption = "Sucursal";
-            this.SucursalesNombre.FieldName = "Sucursal";
+            this.SucursalesNombre.FieldName = "SucursalesNombre";
             this.SucursalesNombre.Name = "SucursalesNombre";
             this.SucursalesNombre.Visible = true;
             this.SucursalesNombre.VisibleIndex = 0;
