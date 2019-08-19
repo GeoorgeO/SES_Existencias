@@ -35,7 +35,7 @@
             this.ArticuloDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FamiliaNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ArticuloCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
@@ -113,24 +113,22 @@
             this.ArticuloCantidad.VisibleIndex = 3;
             this.ArticuloCantidad.Width = 59;
             // 
-            // labelControl1
+            // labelControl2
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(17, 10);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(248, 13);
-            this.labelControl1.TabIndex = 17;
-            this.labelControl1.Text = "Nota: Solo se muestran los articulos activos.";
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(28, 11);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(248, 13);
+            this.labelControl2.TabIndex = 18;
+            this.labelControl2.Text = "Nota: Solo se muestran los articulos activos.";
             // 
             // Frm_BusqArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 435);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.panelControl4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -157,6 +155,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn ArticuloDescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn FamiliaNombre;
         private DevExpress.XtraGrid.Columns.GridColumn ArticuloCantidad;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

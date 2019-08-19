@@ -13,6 +13,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+IF  EXISTS (SELECT * FROM SYS.OBJECTS WHERE TYPE = 'P' AND NAME = 'SP_BSC_CS_ListaSucursalesIdUpdate')
+DROP PROCEDURE SP_BSC_CS_ListaSucursalesIdUpdate
+GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
@@ -32,8 +35,17 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-		UPDATE       ConexionesRemotas
-	SET                ServerID = @ServerID, DataBaseID = @DataBaseID, UserID = @UserID, PassID = @PassID
-	WHERE        (SucursalesId = @SucursalesId)
+	declare @Existe int
+	
+	
+	select @Existe = count(SucursalesId) from ConexionesRemotas a where (a.SucursalesId=@SucursalesId )
+	if @Existe>0
+			UPDATE       ConexionesRemotas
+			SET                ServerID = @ServerID, DataBaseID = @DataBaseID, UserID = @UserID, PassID = @PassID
+			WHERE        (SucursalesId = @SucursalesId)
+		else
+			INSERT ConexionesRemotas (SucursalesId, ServerID, DataBaseID, UserID, PassID) values ( @SucursalesId,@ServerID,@DataBaseID,@UserID,@PassID)
+		
+		
 END
-GO
+

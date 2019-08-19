@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Existencias));
             this.sbConexion = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -51,6 +52,7 @@
             this.PassID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.existencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Estatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SkinForm = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtCodpro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
@@ -266,6 +268,11 @@
             this.Estatus.VisibleIndex = 3;
             this.Estatus.Width = 93;
             // 
+            // SkinForm
+            // 
+            this.SkinForm.EnableBonusSkins = true;
+            this.SkinForm.LookAndFeel.SkinName = "Sharp Plus";
+            // 
             // Frm_Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,5 +323,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn Estatus;
         private DevExpress.XtraEditors.LabelControl lexislocal;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel SkinForm;
     }
 }

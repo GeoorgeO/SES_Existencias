@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CapaDeDatos;
 using DevExpress.XtraSplashScreen;
+using System.Data.SqlClient;
 
 namespace SES_Existencias
 {
@@ -22,17 +23,82 @@ namespace SES_Existencias
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+           
             Frm_Login login = new Frm_Login(8);
             login.ShowDialog();
+
+            tabla.DataSource = null;
+            CargarConexionesSucursalesExistencias();
         }
 
         private void Frm_Existencias_Load(object sender, EventArgs e)
         {
+            MSRegistro RegOut = new MSRegistro();
+            Crypto DesencriptarTexto = new Crypto();
+            string valServer, valDB, valLogin, valPass, v_Sucursal, v_Caja;
+
+            try
+            {
+                valServer = DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Server"));
+                valDB = DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "DBase"));
+                valLogin = DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "User"));
+                valPass = DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Password"));
+            }
+            catch
+            {
+                valServer = string.Empty;
+                valDB = string.Empty;
+                valLogin = string.Empty;
+                valPass = string.Empty;
+            }
+
+
+             if (valServer != null && valDB != null && valLogin != null & valPass != null) {
+
+                using (SqlConnection conn = new SqlConnection(String.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}", valServer, valDB, valLogin, valPass)))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        conn.Close();
+
+                        v_Sucursal = RegOut.GetSetting("ConexionSQL", "Sucursal");
+                        v_Caja = RegOut.GetSetting("ConexionSQL", "Caja");
+
+                        if (v_Sucursal != null && v_Caja != null)
+                        {
+
+                        }else
+                        {
+                            XtraMessageBox.Show("No se Han especificado la sucursal");
+                            Frm_Conexiones conectar = new Frm_Conexiones();
+                            conectar.ShowDialog();
+                        }
+                    }
+                    catch
+                    {
+                        XtraMessageBox.Show("No se Han Configurado datos Correctos para la conexion a la base de datos Local");
+                        Frm_Conexiones conectar = new Frm_Conexiones();
+                        conectar.ShowDialog();
+                    }
+                }
+                CargarConexionesSucursalesExistencias();
+            } 
+            else
+            {
+                XtraMessageBox.Show("No se Han encontrado datos de conexion local");
+                Frm_Conexiones conectar = new Frm_Conexiones();
+                conectar.ShowDialog();
+            }
+            
+           
+
             //gridView1.OptionsBehavior.Editable = false;
             //gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             //gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             //CargarSucursales(null);
-            CargarConexionesSucursalesExistencias();
+            
         }
 
         private void CargarConexionesSucursalesExistencias()
@@ -176,8 +242,28 @@ namespace SES_Existencias
         {
             MSRegistro RegOut = new MSRegistro();
             Crypto DesencriptarTexto = new Crypto();
+            try
+            {
+                if (RegOut.GetSetting("ConexionSQL", "Sucursal").ToString().Length == 0)
+                {
+                    
+                    XtraMessageBox.Show("Falta especificar la sucursal en la conexión");
+                    return -1;
+                }
+                else
+                {
+                    return Convert.ToInt32(DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Sucursal")));
+
+                }
+            }
+            catch (Exception e)
+            {
+               
+                XtraMessageBox.Show("Falta especificar la sucursal en la conexión");
+                return -1;
+            }
            
-                return  Convert.ToInt32(DesencriptarTexto.Desencriptar(RegOut.GetSetting("ConexionSQL", "Sucursal")));
+               
                
              
         }
@@ -247,6 +333,10 @@ namespace SES_Existencias
         {
             Frm_Login login = new Frm_Login(9);
             login.ShowDialog();
+
+            tabla.DataSource = null;
+            CargarConexionesSucursalesExistencias();
+
         }
         private void llenaarticulo(string Codigo,string Articulo){
             txtCodpro.Text = Codigo;

@@ -71,6 +71,6 @@ namespace SES_Existencias
             this.Close();
         }
 
-        
+       
     }
 }

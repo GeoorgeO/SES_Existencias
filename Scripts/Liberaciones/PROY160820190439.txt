@@ -1,0 +1,17 @@
+Scripts\Tablas\InventarioPantalla.sql
+Scripts\Tablas\InventarioPantallaUsuario.sql
+
+Scripts\Datos\PantallasPantallaUsuario.sql
+Scripts\Datos\LlenadoConexionesRemotas.sql
+Scripts\Datos\SucursalTancitaro.sql
+
+Scripts\Procedimientos\Inventarios_Config_CajasSelect.sql
+Scripts\Procedimientos\Inventarios_Config_SucursalesSelect.sql
+Scripts\Procedimientos\Inventarios_Usuarios_Accesos_Select.sql
+Scripts\Procedimientos\SP_BSC_CS_ConexionesSucursalesSelect.sql
+Scripts\Procedimientos\SP_BSC_CS_ListaSucursales.sql
+Scripts\Procedimientos\SP_BSC_CS_ListaSucursalesId.sql
+Scripts\Procedimientos\SP_BSC_CS_ListaSucursalesIdUpdate.sql
+Scripts\Procedimientos\SP_BSC_CS_selectBusqArticulo.sql
+Scripts\Procedimientos\SP_BSC_CS_selectBusqArticuloId.sql
+Scripts\Procedimientos\usp_UsuarioAccesosSelect.sql

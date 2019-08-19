@@ -13,6 +13,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+IF  EXISTS (SELECT * FROM SYS.OBJECTS WHERE TYPE = 'P' AND NAME = 'Inventarios_Usuarios_Accesos_Select')
+DROP PROCEDURE Inventarios_Usuarios_Accesos_Select
+GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>

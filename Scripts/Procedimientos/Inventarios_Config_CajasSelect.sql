@@ -1,5 +1,3 @@
-USE [SES_AlmacenV4]
-GO
 
 /****** Object:  StoredProcedure [dbo].[Inventarios_Config_CajasSelect]    Script Date: 13/08/2019 12:11:49 p. m. ******/
 SET ANSI_NULLS ON
@@ -7,7 +5,9 @@ GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
+IF  EXISTS (SELECT * FROM SYS.OBJECTS WHERE TYPE = 'P' AND NAME = 'Inventarios_Config_CajasSelect')
+DROP PROCEDURE Inventarios_Config_CajasSelect
+GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>

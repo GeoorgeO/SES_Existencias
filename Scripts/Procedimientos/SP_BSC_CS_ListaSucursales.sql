@@ -13,6 +13,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+IF  EXISTS (SELECT * FROM SYS.OBJECTS WHERE TYPE = 'P' AND NAME = 'SP_BSC_CS_ListaSucursales')
+DROP PROCEDURE SP_BSC_CS_ListaSucursales
+GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
@@ -28,8 +31,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT        ConexionesSucursales.SucursalesId,rtrim( suc.SucursalesNombre) as SucursalesNombre
-    FROM            ConexionesSucursales INNER JOIN
-                         Central.dbo.Sucursales as suc ON ConexionesSucursales.SucursalesId = suc.SucursalesId
+	SELECT        SucursalesId,rtrim( suc.SucursalesNombre) as SucursalesNombre
+    FROM          Sucursales as suc order by 1
 END
 GO

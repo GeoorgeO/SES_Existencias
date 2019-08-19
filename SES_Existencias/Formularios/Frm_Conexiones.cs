@@ -226,6 +226,14 @@ namespace SES_Existencias
                         RegIn.SaveSetting("ConexionSQL", "Sucursal", EncriptarTexto.Encriptar(cboSucursales.EditValue.ToString()));
                         RegIn.SaveSetting("ConexionSQL", "Caja", EncriptarTexto.Encriptar(cboCajas.EditValue.ToString()));
                         XtraMessageBox.Show("Se Grabaron los Datos Del Servidor Local Con Exito");
+
+                        MSRegistro RegOut = new MSRegistro();
+
+
+                        CargarComboSucursales();
+
+
+
                         this.Close();
                     }
                     catch (Exception ex)
@@ -233,6 +241,11 @@ namespace SES_Existencias
                         XtraMessageBox.Show("Error Descripcion: " + ex);
                     }
                 }
+
+               
+               
+                   
+                
             }
             else
             {
@@ -319,5 +332,7 @@ namespace SES_Existencias
                 CargarCajas(null,Convert.ToInt32(cboSucursales.EditValue));
             }
         }
+
+      
     }
 }
