@@ -101,7 +101,7 @@ end
 
 GO
 delete from ConexionesRemotas
-
+Go
 
 INSERT [dbo].[ConexionesRemotas] ([SucursalesId], [ServerID], [DataBaseID], [UserID], [PassID]) VALUES (CAST(1 AS Decimal(11, 0)), N'ukcwczzTJyrwJv78Q0RXPhhnMj5qXLWZ', N'3a0vCA//KDIScDMytkPBmw==', N'lMxfS1DsDwY=', N'P1AFQFoid+8xakE9uvRhfA==')
 GO

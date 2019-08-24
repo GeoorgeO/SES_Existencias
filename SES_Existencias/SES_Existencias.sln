@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SES_Existencias", "SES_Existencias.csproj", "{9120CC2D-3109-414E-B325-630C3C5C063D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECA4E383-40ED-4B15-AF29-82AF25109124} = {ECA4E383-40ED-4B15-AF29-82AF25109124}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDeDatos", "..\..\SES_reportes\Software\BSC_Reportes\CapaDeDatos\CapaDeDatos.csproj", "{ECA4E383-40ED-4B15-AF29-82AF25109124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +20,15 @@ Global
 		{9120CC2D-3109-414E-B325-630C3C5C063D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9120CC2D-3109-414E-B325-630C3C5C063D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9120CC2D-3109-414E-B325-630C3C5C063D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA4E383-40ED-4B15-AF29-82AF25109124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA4E383-40ED-4B15-AF29-82AF25109124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA4E383-40ED-4B15-AF29-82AF25109124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA4E383-40ED-4B15-AF29-82AF25109124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCF1F5CC-C5AF-4439-AC09-59ECABB5FA2F}
 	EndGlobalSection
 EndGlobal
